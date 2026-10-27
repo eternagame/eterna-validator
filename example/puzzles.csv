@@ -1,0 +1,4 @@
+puzzle_id,title,folder,structure,constraints,locks,begin_sequence
+20111,Simple Hairpin,Vienna,(((((......))))),"SHAPE,0",oooooooooooooooo,AAAAAAAAAAAAAAAA
+215430,Arabidopsis Thaliana 6 RNA - Difficulty Level 0,Vienna,(((((((....(((...........)))((((((((..(((((((((((((((((((...(((((......))))).)))))).)))))))))))))..))))))))..))))))),"SHAPE,0,GU,2",oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo,AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+446042,Six legd turtle 2,Vienna,.....((...((....))...((....))...((....))...((....))...((....))...((....))...))....................,"SHAPE,0,CONSECUTIVE_G,4,CONSECUTIVE_C,4",xxooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooxxxxxxxxxxxxxxxxxxxx,GGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAACAACAACAACAAC
