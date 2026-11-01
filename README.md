@@ -147,14 +147,16 @@ All three pass with the constraints enforced, so `--target-only` gives the same 
 ### A design that fails
 
 The two conditions do come apart. Eterna100-V2 puzzle 6158733 ("Mat - Martian 2", Vienna2) asks
-for at least 12 GU pairs and at most 4 GC pairs; its published sample solution folds to the target
-but uses 4 GU and 43 GC:
+for at least 12 GU pairs and at most 4 GC pairs. The design below folds to the target but uses
+4 GU and 43 GC, so it is not a legal in-game solution. (It is the solution
+[eterna100-benchmarking](https://github.com/eternagame/eterna100-benchmarking) published for this
+puzzle before its sample solutions were replaced with constraint-satisfying ones; the solution
+shipped there now satisfies both conditions.)
 
 ```sh
 export RNAFOLD_V2=/path/to/RNAfold          # ViennaRNA 2.x, for a Vienna2 puzzle
 python3 fetch_puzzles.py 6158733 --out martian.csv
-awk -F'\t' 'BEGIN {OFS="\t"; print "puzzle_id", "sequence"}
-            $8 == "6158733" {print $8, $12}' eterna100_puzzles.tsv > martian.tsv
+printf 'puzzle_id\tsequence\n6158733\tGUGGGAAACCACAAAGGUAUCGAAGCACGUGGAAAAAACACGUGCCGAUACCAAAGGCAUCCCGAAAAAGAUCUAGAGGGGGAGGAAAAAACUCCUUCCUAGAUCAAAGCUAAGCGUGUAGCGAAAAAAGCUAUACAGCUUAGCAAAAAAGGGAUGUCAAAGUUGUGCCGUGGCGGAAAAAACGCCACGAAGCACAACAAACAACGAAAGUUG\n' > martian.tsv
 python3 check_design.py martian.csv martian.tsv --out martian_results.tsv
 ```
 
@@ -170,9 +172,10 @@ GU: 4 < 12; GC: 43 > 4
 ```
 
 Re-run that with `--target-only` and it passes `1/1`, because the MFE structure does equal the
-target. Across the whole benchmark: every disclosed Eterna100-V1 sample solution passes either way
-(99/99, the 100th being undisclosed), while the Eterna100-V2 solutions score 99/99 under
-`--target-only` but only 49/99 with their player constraints enforced.
+target. Across the whole benchmark the two conditions now agree: every disclosed sample solution
+published in [eterna100-benchmarking](https://github.com/eternagame/eterna100-benchmarking) passes
+both ways — 99/99 for Eterna100-V1 and 99/99 for Eterna100-V2 under `--target-only`, and the same
+with their player constraints enforced (the 100th puzzle is undisclosed).
 
 ## Scope
 
